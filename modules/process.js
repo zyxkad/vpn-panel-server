@@ -29,7 +29,7 @@ const route = async (message,socket) => {
             await showMessage(socket,message)
         break
 
-        case 'getVersion':
+        case 'version':
             await showVersion(socket,message)
     }
 

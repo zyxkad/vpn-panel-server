@@ -10,6 +10,7 @@ const {route,sender} = require('./process')
 function newConnection (socket){
     const stick = new Stick(1024);
     stick.setMaxBodyLen(MaxBodyLen['32K']);
+    sender.setMaxListeners(5000)
     //init settings for this socket
     //set a number for wait client to register to server - default 30sec
     socket.setTimeout(config.timeout)
