@@ -1,0 +1,24 @@
+{
+  "name": "vpn-panel-server",
+  "version": "1.0.0",
+  "description": "VPN控制面板服务端",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/older-fox/vpn-panel-server.git"
+  },
+  "author": "OlderFox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/older-fox/vpn-panel-server/issues"
+  },
+  "homepage": "https://github.com/older-fox/vpn-panel-server#readme",
+  "dependencies": {
+    "@lvgithub/stick": "^3.1.11",
+    "colors": "^1.4.0",
+    "conf": "^10.1.1"
+  }
+}

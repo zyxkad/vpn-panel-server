@@ -1,0 +1,15 @@
+{
+	"configInfo": {
+		"debug": true,
+		"version": "1.0.0"
+	},
+	"server": {
+		"port": 6100,
+		"address": "0.0.0.0"
+	},
+	"settings": {
+		"net": {
+			"timeout": 30000
+		}
+	}
+}
