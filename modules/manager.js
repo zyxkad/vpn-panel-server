@@ -20,6 +20,7 @@ function newConnection (socket){
     //process data
     stick.onBody(async (data)=>{
         logger.info(data.toString())
+        socket.setTimeout(0)
     })
 
     socket.on('close',(hadError)=>{
