@@ -4,6 +4,7 @@
 const logger = require('../utils/logger')
 const config = require('../utils/config').get('settings.net')
 const { Stick, MaxBodyLen } = require('@lvgithub/stick/index');
+const {sender} = require('./process')
 
 //Accept new connection and process it
 function newConnection (socket){
@@ -23,11 +24,16 @@ function newConnection (socket){
         socket.setTimeout(0)
     })
 
+    //服务端广播
+    sender.on('broadcast',(info)=>{
+        socket.write(stick.makeData(JSON.stringify(info)))
+    })
+
     socket.on('close',(hadError)=>{
         if (hadError === false){
             logger.debug(`客户端[${socket.remoteAddress}:${socket.remotePort}]连接断开.`)
         }
-        //TODO:处理客户端断开后的解除注册
+        //TODO:处理客户端断开后的解除注册-删除该客户端下的所有账号
     })
 
     socket.on('timeout',()=>{
