@@ -1,5 +1,5 @@
 const events = require('events');
-const {showMessage} =require('./src/message')
+const {showMessage,showVersion} =require('./src/message')
 const sender = new events.EventEmitter()
 
 //处理所有发送到服务端的消息
@@ -28,6 +28,9 @@ const route = async (message,socket) => {
         case 'message':
             await showMessage(socket,message)
         break
+
+        case 'getVersion':
+            await showVersion(socket,message)
     }
 
 }
