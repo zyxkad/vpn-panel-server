@@ -4,7 +4,7 @@
 const logger = require('../utils/logger')
 const config = require('../utils/config').get('settings.net')
 const { Stick, MaxBodyLen } = require('@lvgithub/stick/index');
-const {sender} = require('./process')
+const {route,sender} = require('./process')
 
 //Accept new connection and process it
 function newConnection (socket){
@@ -20,8 +20,14 @@ function newConnection (socket){
 
     //process data
     stick.onBody(async (data)=>{
-        logger.info(data.toString())
+        let message
+        try {
+            message = JSON.parse(data.toString())
+        }catch (e){
+            logger.warn(`处理Json消息时发生错误`)
+        }
         socket.setTimeout(0)
+        await route(message,socket)
     })
 
     //服务端广播

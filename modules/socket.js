@@ -19,7 +19,8 @@ const createServer = ()=>{
     //处理客户端连接,在连接后弃置不管,等待客户端发送注册请求
     server.on('connection', (socket)=>{
         logger.info(`新客户端连接,地址[${socket.remoteAddress}:${socket.remotePort}]`)
-        manager.newConnection(socket)//处理该链接信息
+        //处理该链接信息
+        manager.newConnection(socket)
         server.getConnections((error,count)=>{
             logger.info(`当前总连接数:${count}`)
         })
