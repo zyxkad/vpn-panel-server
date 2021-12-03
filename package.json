@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "init": "git submodule update --init --recursive",
-    "update": "git submodule foreach --recursive git pull --rebase origin master",
+    "update": "git submodule foreach --recursive git pull --rebase origin HEAD",
     "start": "node index.js"
   },
   "repository": {
@@ -22,6 +22,9 @@
     "@lvgithub/stick": "^3.1.11",
     "colors": "^1.4.0",
     "conf": "^10.1.1",
-    "express": "^4.17.1"
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "js-base64": "^3.7.2"
   }
 }

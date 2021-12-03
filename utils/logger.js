@@ -10,13 +10,13 @@ function getFormatTime(){
 }
 
 module.exports = {
-	debug(message) {
-		console.log(color.green('[DEBUG]' + '[' + getFormatTime() + ']: ' + message));
+	debug(...args) {
+		console.log(color.green('[DEBUG]' + '[' + getFormatTime() + ']: ' + args.join(' ')));
 	},
-	info(message) {
-		console.log(color.magenta('[INFO]') + '[' + getFormatTime() + ']: ' + message);
+	info(...args) {
+		console.log(color.magenta('[INFO]') + '[' + getFormatTime() + ']: ' + args.join(' '));
 	},
-	warn(message) {
-		console.log(color.yellow('[WARN]' + '[' + getFormatTime() + ']: ' + message));
+	warn(...args) {
+		console.log(color.yellow('[WARN]' + '[' + getFormatTime() + ']: ' + args.join(' ')));
 	}
 }

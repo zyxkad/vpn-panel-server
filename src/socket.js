@@ -5,10 +5,11 @@
 
 
 const {resolve} = require('path'); const PATH = resolve('.');
+const logger = require(PATH + '/utils/logger');
 const { Stick, MaxBodyLen } = require('@lvgithub/stick/index');
 const { route, sender } = require('./process');
-const logger = require(PATH + '/utils/logger');
 const config = require('./config');
+const GLOBAL = require('./global');
 const net = require('net');
 
 //Accept new connection and process it
@@ -45,6 +46,7 @@ function newConnection(socket){
 		if (hadError === false){
 			logger.debug(`客户端[${socket.remoteAddress}:${socket.remotePort}]连接断开.`)
 		}
+		GLOBAL.server.online --;
 		//TODO: 处理客户端断开后的解除注册-删除该客户端下的所有账号
 	});
 
@@ -76,9 +78,8 @@ function runSocketServer(){
 		logger.info(`新客户端[${socket.remoteAddress}:${socket.remotePort}]连接成功`);
 		//处理该链接信息
 		newConnection(socket);
-		server.getConnections((error,count)=>{
-			logger.info(`当前总连接数: ${count}`);
-		});
+		GLOBAL.server.online ++;
+		logger.debug(`当前总连接数: ${GLOBAL.server.online}`);
 	});
 
 	server.on('error',async (e)=>{
