@@ -1,4 +1,6 @@
 
+'use strict';
+
 const {resolve, join} = require('path'); const PATH = resolve('.');
 const logger = require(PATH + '/utils/logger');
 const random = require(PATH + '/utils/random');

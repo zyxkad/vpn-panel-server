@@ -1,4 +1,6 @@
 
+'use strict';
+
 const data = {
 	server: {
 		total: 456,

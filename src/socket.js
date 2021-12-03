@@ -1,8 +1,9 @@
 
+'use strict';
+
 //This file is used for communication with client
 //OlderFox By 2021-11-13
 //Ver 1.0 Beta
-
 
 const {resolve} = require('path'); const PATH = resolve('.');
 const logger = require(PATH + '/utils/logger');

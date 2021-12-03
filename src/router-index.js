@@ -1,4 +1,6 @@
 
+'use strict';
+
 const {resolve} = require('path'); const PATH = resolve('.');
 const logger = require(PATH + '/utils/logger');
 const express = require('express');

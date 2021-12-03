@@ -1,4 +1,6 @@
 
+'use strict';
+
 const {resolve} = require('path'); const PATH = resolve('.');
 const config = require('./config');
 const logger = require(PATH + '/utils/logger');

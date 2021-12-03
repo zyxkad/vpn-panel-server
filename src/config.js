@@ -1,4 +1,6 @@
 
+'use strict';
+
 const {resolve} = require('path'); const PATH = resolve('.');
 const Conf = require('conf');
 

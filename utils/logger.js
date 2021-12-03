@@ -1,4 +1,6 @@
 
+'use strict';
+
 const color = require('colors');
 
 function getFormatTime(){
@@ -18,5 +20,8 @@ module.exports = {
 	},
 	warn(...args) {
 		console.log(color.yellow('[WARN]' + '[' + getFormatTime() + ']: ' + args.join(' ')));
+	},
+	error(...args) {
+		console.log(color.red('[WARN]' + '[' + getFormatTime() + ']: ' + args.join(' ')));
 	}
 }
